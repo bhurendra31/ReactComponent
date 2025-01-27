@@ -52,6 +52,7 @@ const Validation = () => {
       [name]: error
     });
 
+    // Check if all fields are filled and valid
     const allFieldsFilled = Object.values({
       ...formData,
       [name]: value
@@ -67,40 +68,42 @@ const Validation = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    // Handle form submission
     console.log('Form submitted:', formData);
     alert('Form submitted successfully!');
   };
 
   return (
-    <div><h1>Registration Form</h1>
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label>Name:</label>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} />
-        {errors.name && <span className="error">{errors.name}</span>}
-      </div>
-      <div>
-        <label>Email:</label>
-        <input type="email" name="email" value={formData.email} onChange={handleChange} />
-        {errors.email && <span className="error">{errors.email}</span>}
-      </div>
-      <div>
-        <label>Contact:</label>
-        <input type="text" name="contact" value={formData.contact} onChange={handleChange} />
-        {errors.contact && <span className="error">{errors.contact}</span>}
-      </div>
-      <div>
-        <label>Password:</label>
-        <input type="password" name="password" value={formData.password} onChange={handleChange} />
-        {errors.password && <span className="error">{errors.password}</span>}
-      </div>
-      <div>
-        <label>Confirm Password:</label>
-        <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
-        {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
-      </div>
-      <button type="submit" disabled={!isFormValid}>Submit</button>
-    </form>
+    <div>
+      <h1>Registration Form</h1>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Name:</label>
+          <input type="text" name="name" value={formData.name} onChange={handleChange} />
+          {errors.name && <span className="error">{errors.name}</span>}
+        </div>
+        <div>
+          <label>Email:</label>
+          <input type="email" name="email" value={formData.email} onChange={handleChange} />
+          {errors.email && <span className="error">{errors.email}</span>}
+        </div>
+        <div>
+          <label>Contact:</label>
+          <input type="text" name="contact" value={formData.contact} onChange={handleChange} />
+          {errors.contact && <span className="error">{errors.contact}</span>}
+        </div>
+        <div>
+          <label>Password:</label>
+          <input type="password" name="password" value={formData.password} onChange={handleChange} />
+          {errors.password && <span className="error">{errors.password}</span>}
+        </div>
+        <div>
+          <label>Confirm Password:</label>
+          <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
+          {errors.confirmPassword && <span className="error">{errors.confirmPassword}</span>}
+        </div>
+        <button type="submit" disabled={!isFormValid}>Submit</button>
+      </form>
     </div>
   );
 };
